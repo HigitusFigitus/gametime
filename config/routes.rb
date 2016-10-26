@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :games, only:[:index,:show] do
-  	resources :comments, only:[:index,:new,:create]
+  	resources :comments, only:[:new,:create]
   end
-  
+
   resources :tags, only:[:show]
 
   root "games#index"
