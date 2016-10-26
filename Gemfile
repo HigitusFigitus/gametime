@@ -55,3 +55,4 @@ end
 
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'httparty'
