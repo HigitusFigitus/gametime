@@ -8,6 +8,4 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to game_path(params[:game_id])
 	end
-
-
 end

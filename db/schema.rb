@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026192254) do
+ActiveRecord::Schema.define(version: 20161027220607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20161026192254) do
     t.string   "play_time"
     t.string   "publish_year"
     t.text     "description"
-    t.integer  "vote"
     t.integer  "tag_id",        default: 1
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -77,6 +76,15 @@ ActiveRecord::Schema.define(version: 20161026192254) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
+    t.integer  "votable_id"
+    t.boolean  "vote_direction"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

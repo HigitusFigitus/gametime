@@ -4,26 +4,22 @@
 <div><%= @tag.name %></div>
 <img src="<%= @game.thumbnail_url %>">
 <div>Number of players: <%= @game.min_players %> – <%= @game.max_players %></div>
-<div>Upvoted <%= @game.vote %> times</div>
+<div>Upvoted <%= @game.votes.where(vote_direction:true).count %> times</div>
 <p> <%= @game.description %> </p>
 
-<%= form_tag(game_path(@game), method: :put) do %>
-  <%= hidden_field_tag('type', 'up') %>
-  <div><%= submit_tag '+1' %></div>
-<% end %>
-<%= form_tag(game_path(@game), method: :put) do %>
-  <%= hidden_field_tag('type', 'down') %>
-  <div><%= submit_tag '-1' %></div>
-<% end %>
-
+<%= render 'partials/voteform',{ type: @game, type_name:'Game'} %>
+<% if !favorite?(@game) %>
 <%= form_tag(user_favorites_path(@game), method: :post) do %>
   <div><%= submit_tag 'Add to Favorites' %></div>
+<% end %>
 <% end %>
 
 <%= link_to 'Comment', new_game_comment_path(@game) %>
 
 <ul>
 <% @comments.each do |comment| %>
-  <li><%= comment.body %></li>
+  <li>body:<%= comment.body %>
+  vote:<%= comment.votes.where(vote_direction:true).count %> </li>
+  <%= render 'partials/voteform',{ type: comment, type_name:'Comment'} %>
 <% end %>
 </ul>
