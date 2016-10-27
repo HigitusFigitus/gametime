@@ -1,12 +1,10 @@
 require 'json'
 
-Tag.destroy_all
-Game.destroy_all
-
 default_tag = Tag.create(name: "Party Game")
 
 100.times do |i|
   response = JSON.parse(HTTParty.get("https://bgg-json.azurewebsites.net/thing/#{i+1}"))
+  p "https://bgg-json.azurewebsites.net/thing/#{i+1}"
 
   if response['mechanics']
     tag = Tag.find_or_create_by(name: response['mechanics'][0])
