@@ -1,15 +1,15 @@
 <%# <%= render partial: "header", layout: "" %>
 <h1><%= @game.name %></h1>
-<div>Published in <%= @game.publish_year %> </div>
+<div>Published in <%= @game.publish_year %></div>
 <div><%= @tag.name %></div>
 <img src="<%= @game.thumbnail_url %>">
 <div>Number of players: <%= @game.min_players %> – <%= @game.max_players %></div>
 <div>Upvoted <%= @game.votes.where(vote_direction:true).count %> times</div>
-<p> <%= @game.description %> </p>
-
+<p><%= @game.description %></p>
+<% if current_user %>
 <%= render 'partials/voteform',{ type: @game, type_name:'Game'} %>
 <% if !favorite?(@game) %>
-<%= form_tag(user_favorites_path(@game), method: :post) do %>
+  <%= form_tag(user_favorites_path(@game), method: :post) do %>
   <div><%= submit_tag 'Add to Favorites' %></div>
 <% end %>
 <% end %>
@@ -23,3 +23,4 @@
   <%= render 'partials/voteform',{ type: comment, type_name:'Comment'} %>
 <% end %>
 </ul>
+<% end %>
