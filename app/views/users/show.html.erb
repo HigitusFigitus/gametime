@@ -3,8 +3,8 @@
 <h1>WELCOME <%= @user.username %></h1>
 
 <% if current_user.friendships.where(friend_id:@user.id) == [] && current_user != @user %>
-  <%= form_for :friendship,url:user_friendships_path(@user) do |f| %>
-  <%= submit_tag("Add") %>
+  <%= form_for :friendship, url:user_friendships_path(@user) do |f| %>
+    <%= submit_tag("Add") %>
   <% end %>
 <% end %>
 <h3>Your Favorite Board Games:</h3>
@@ -12,6 +12,9 @@
   <%= link_to image_tag(game.thumbnail_url),game_path(game) %>
   <p>Name: <%= game.name %></p>
   <p>Votes: <%= game.vote %></p>
+    <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
+    <%= submit_tag("Delete") %>
+  <% end %>
 <% end %>
  <h3>Following:</h3>
  <% @friends.each do |friend| %>
