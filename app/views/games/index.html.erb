@@ -5,8 +5,8 @@
 	</div>
 	<div class="row">
 		<% tag.games.each do |game| %>
-		  <div class="col-sm-12" >
-				<%= game.name %>
+		  <div class="col-sm-1" >
+				<%= game.name %><br />
 				<%= link_to image_tag(game.thumbnail_url), game_path(game) %>
 			</div>
 		<% end %>

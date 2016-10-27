@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.integer :vote
 
       t.integer :game_id
-      t.integer :user_ids
+      t.integer :user_id
 
       t.timestamps
     end
