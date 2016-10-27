@@ -9,9 +9,9 @@
       <%= link_to "Login", new_user_session_path, class: "btn"%>
       <%= link_to "Register", new_user_registration_path, class: "btn" %>
       <% end %>
-      <form class="search navbar-form">
+      <form class="search navbar-form" action="/search" method="GET">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" name="search" placeholder="Search">
           <input type="submit" value="Search"/>
         </div>
       </form>
