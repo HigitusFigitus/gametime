@@ -12,5 +12,4 @@ class FavoritesController < ApplicationController
     favorite.destroy
     redirect_to user_path(current_user)
   end
-
 end

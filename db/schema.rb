@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20161026192254) do
     t.text     "body"
     t.integer  "vote"
     t.integer  "game_id"
-    t.integer  "user_ids"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
