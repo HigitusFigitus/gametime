@@ -1,6 +1,6 @@
 require 'json'
 
-default_tag = Tag.create(name: "Party Game")
+default_tag = Tag.create(name: "Trick-taking")
 
 
 20.times do |i|
