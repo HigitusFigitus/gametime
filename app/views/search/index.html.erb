@@ -1,1 +1,12 @@
-<%= @results[0].name %>
+<% @user_results.each do |result_array| %>
+  <% result_array.each do |result| %>
+    <%= "#{result.id}: #{result.username}" %>
+  <% end %>
+<% end %>
+
+
+<% @game_results.each do |result_array| %>
+  <% result_array.each do |result| %>
+    <%= "#{result.id}: #{result.name}" %>
+  <% end %>
+<% end %>
