@@ -1,6 +1,20 @@
+$carousel-image-size: 186px;
+
+.carousel {
+  overflow:scroll;
+}
+
 .carousel-item img {
-  max-width: 200px;
-  max-height: 200px;
-  width: 200px;
-  height: 200px;
+  max-width: $carousel-image-size;
+  max-height: $carousel-image-size;
+  width: $carousel-image-size;
+  height: $carousel-image-size;
+}
+
+a.right.carousel-control {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+a.left.carousel-control {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
