@@ -1,3 +1,8 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  </div>
+</nav>
+
 <% if current_user %>
   <%= link_to "Home",user_path(current_user)%>
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
