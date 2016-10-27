@@ -5,7 +5,7 @@ Game.destroy_all
 
 default_tag = Tag.create(name: "Party Game")
 
-100.times do |i|
+10.times do |i|
   response = JSON.parse(HTTParty.get("https://bgg-json.azurewebsites.net/thing/#{i+1}"))
 
   if response['mechanics']
