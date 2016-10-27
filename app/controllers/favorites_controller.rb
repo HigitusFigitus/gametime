@@ -1,7 +1,5 @@
 class FavoritesController < ApplicationController
-	def index
-
-	end
+  before_action :authenticate_user!
 
 	def create
 
@@ -9,9 +7,9 @@ class FavoritesController < ApplicationController
 
 
   def destroy
-    p params
-    favorite = Favorite.find(params[:id])
-    user = User.find(params[:user_id])
+    favorite = Favorite.find_by(user_id:params[:user_id],game_id: params[:id])
+    favorite.destroy
+    redirect_to user_path(current_user)
   end
 
 end

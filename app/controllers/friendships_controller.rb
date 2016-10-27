@@ -1,15 +1,16 @@
 class FriendshipsController < ApplicationController
-	def index
+  before_action :authenticate_user!
 
-	end
-
-	def create
-    p"%"*20
-    p params
-    p friendship_params
+  def create
     friend = User.find(friendship_params[:user_id])
     current_user.friends << friend
     redirect_to user_path(friend)
+  end
+
+  def destroy
+    friendship = Friendship.find_by(user_id:params[:user_id],friend_id:params[:id])
+    friendship.destroy
+    redirect_to user_path(current_user)
   end
 
   private
