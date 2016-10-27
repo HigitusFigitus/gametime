@@ -1,5 +1,15 @@
 <div class="container">
+	<% @tags.each do |tag| %>
 	<div class="row">
-		<div class="col-sm-12"><h1>hihi</h1></div>
+		<div class="col-sm-12"><h1><%= tag.name %></h1></div>
 	</div>
+	<div class="row">
+		<% tag.games.each do |game| %>
+		  <div class="col-sm-12" >
+				<%= game.name %>
+				<%= link_to image_tag(game.thumbnail_url), game_path(game) %>
+			</div>
+		<% end %>
+	</div>
+	<% end %>
 </div>
