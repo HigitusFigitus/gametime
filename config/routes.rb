@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :tags, only:[:show]
 
+  resources :search, only: :index
+
   root "games#index"
 end
