@@ -8,9 +8,9 @@
 	<div class="row">
 		<div id="myCarousel-<%=index%>" class="carousel slide" data-ride="carousel" data-interval="false">
 			<ol class="carousel-indicators">
-				<li data-target="#myCarousel-<%=index%>" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel-<%=index%>" data-slide-to="0" class="invisible active"></li>
 				<% (group(tag).count - 1).times do |i| %>
-				<li data-target="#myCarousel-<%=index%>" data-slide-to="<%= i+1 %>"></li>
+				<li data-target="#myCarousel-<%=index%>" data-slide-to="<%= i+1 %>" class="invisible"></li>
 				<% end %>
 			</ol>
 
