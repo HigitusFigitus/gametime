@@ -2,7 +2,9 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
 	def create
-    @favorite = Favorite.new(user_id: current_user.id, game_id: params[:game_id])
+    @favorite = Favorite.new(user_id: current_user.id, game_id: params[:user_id])
+    @favorite.save
+    redirect_to game_path(params[:user_id])
   end
 
   def destroy
@@ -10,5 +12,4 @@ class FavoritesController < ApplicationController
     favorite.destroy
     redirect_to user_path(current_user)
   end
-
 end

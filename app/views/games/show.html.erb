@@ -19,3 +19,11 @@
 <%= form_tag(user_favorites_path(@game), method: :post) do %>
   <div><%= submit_tag 'Add to Favorites' %></div>
 <% end %>
+
+<%= link_to 'Comment', new_game_comment_path(@game) %>
+
+<ul>
+<% @comments.each do |comment| %>
+  <li><%= comment.body %></li>
+<% end %>
+</ul>
