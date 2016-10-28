@@ -12,7 +12,7 @@ User.create(username:"boo",email:"789@gmail.com",password:"123123",password_conf
   if !response['message']
     tag = Tag.find_or_create_by(name: response['mechanics'][0]) if response['mechanics'] && response['mechanics'] != []
 
-    game = Game.create!(name: response['name'], image_url: response['image'], thumbnail_url: response['thumbnail'], min_players: response['minPlayers'], max_players: response['maxPlayers'], play_time: response['playingTime'], publish_year: response['yearPublished'], description: response['description'], tag_id: tag ? tag.id : default_tag.id)
+    Game.create!(name: response['name'], image_url: response['image'], thumbnail_url: response['thumbnail'], min_players: response['minPlayers'], max_players: response['maxPlayers'], play_time: response['playingTime'], publish_year: response['yearPublished'], description: response['description'], tag_id: tag ? tag.id : default_tag.id)
 
   end
 
@@ -23,4 +23,3 @@ Friendship.create(user_id:1,friend_id:2)
 Favorite.create(user_id:1,game_id:1)
 Favorite.create(user_id:1,game_id:2)
 Favorite.create(user_id:1,game_id:3)
-
