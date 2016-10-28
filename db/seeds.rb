@@ -17,6 +17,6 @@ end
 
 urls = ["https://i.imgur.com/i9k8D6W.jpg", "https://i.imgur.com/KHLSocG.jpg", "https://i.imgur.com/VqIiZ25.jpg", "https://i.imgur.com/dRxnay8.jpg", "https://i.imgur.com/LnG12CJ.jpg"]
 
-5.times do |i|
-  User.create!(email: "Faker::Internet.email", username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, image_url: urls[i])
+20.times do |i|
+  User.create!(password: "password", email: "sam#{i}@smush.io", username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, image_url: urls.sample)
 end

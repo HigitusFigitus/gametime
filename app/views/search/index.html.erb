@@ -3,11 +3,11 @@
     <div class="col-sm-12"><h1 class="tag-name">Users</h1></div>
   </div>
 
-  <ul>
+  <ul class="search-list">
   <% @user_results.each do |result_array| %>
     <% result_array.each do |result| %>
       <li class="search-result">
-        <%= link_to result.username, user_path(result.id) %>
+        <%= link_to image_tag(result.image_url), user_path(result.id) %>
       </li>
     <% end %>
   <% end %>
