@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20161027220607) do
     t.string   "play_time"
     t.string   "publish_year"
     t.text     "description"
-    t.integer  "vote"
     t.integer  "tag_id",        default: 1
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
