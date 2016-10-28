@@ -13,6 +13,24 @@ $image-size: 186px;
   padding-bottom: 2px;
 }
 
+.card {height: 300px;}
+
 .card-title {
   font-size: 20px;
+}
+
+.friend {
+  background-color: green;
+  border: transparent;
+  height: 38px;
+}
+.friend:hover {
+  background-color: #bc1c1c;
+  height: 38px;
+}
+
+.enemy:hover {
+  background-color: green;
+  border: green;
+  height: 38px;
 }
