@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :tags, only:[:show]
 
-  resources :search, only: :index
+  resources :search, only: [:index, :create]
 
   resources :votes, only:[:create, :update]
 
