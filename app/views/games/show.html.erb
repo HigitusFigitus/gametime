@@ -14,8 +14,9 @@
 <% end %>
 <% end %>
 
-<%= link_to 'Comment', new_game_comment_path(@game) %>
+<%= link_to 'Comment', new_game_comment_path(@game), id: "new_form_link" %>
 
+<div id="comment-form" style="display:none;">Hello</div>
 <ul>
   <% @comments.each do |comment| %>
     <li><%= comment.body %>
@@ -23,4 +24,7 @@
     <%= render 'partials/voteform',{ type: comment, type_name:'Comment'} %>
   <% end %>
 </ul>
+</div>
 <% end %>
+
+<%= hidden_field_tag "game_id_field", @game.id %>
