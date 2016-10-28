@@ -1,12 +1,23 @@
-<% @user_results.each do |result_array| %>
-  <% result_array.each do |result| %>
-    <%= "#{result.id}: #{result.username}" %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12"><h1 class="tag-name">Users</h1></div>
+  </div>
 
-
-<% @game_results.each do |result_array| %>
-  <% result_array.each do |result| %>
-    <%= "#{result.id}: #{result.name}" %>
+  <ul>
+  <% @user_results.each do |result_array| %>
+    <% result_array.each do |result| %>
+      <li><%= link_to "#{result.id}: #{result.username}", user_path(result.id)  %></li>
+    <% end %>
   <% end %>
-<% end %>
+  </ul>
+  <div class="row">
+    <div class="col-sm-12"><h1 class="tag-name">Games</h1></div>
+  </div>
+  <ul>
+  <% @game_results.each do |result_array| %>
+    <% result_array.each do |result| %>
+      <li><%= link_to "#{result.id}: #{result.name}", game_path(result.id)  %></li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>

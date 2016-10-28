@@ -10,7 +10,6 @@ $img-div-size: 186px;
 }
 
 .img-container {
-  // display: flex;
   height: $img-div-size;
   width: $img-div-size;
   padding: none;
@@ -18,8 +17,6 @@ $img-div-size: 186px;
   border: none;
 }
 .carousel-item img {
-  // max-width: $carousel-image-size;
-  // max-height: $carousel-image-size;
   width: $image-size;
   height: $image-size;
 }
