@@ -1,0 +1,14 @@
+$image-size: 186px;
+
+.search-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-result img {
+  width: $image-size;
+  height: $image-size;
+  padding-right: 2px;
+  padding-bottom: 2px;
+}

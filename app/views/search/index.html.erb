@@ -6,17 +6,22 @@
   <ul>
   <% @user_results.each do |result_array| %>
     <% result_array.each do |result| %>
-      <li><%= link_to "#{result.id}: #{result.username}", user_path(result.id)  %></li>
+      <li class="search-result">
+        <%= link_to result.username, user_path(result.id) %>
+      </li>
     <% end %>
   <% end %>
   </ul>
   <div class="row">
     <div class="col-sm-12"><h1 class="tag-name">Games</h1></div>
   </div>
-  <ul>
+  <ul class="search-list">
   <% @game_results.each do |result_array| %>
     <% result_array.each do |result| %>
-      <li><%= link_to "#{result.id}: #{result.name}", game_path(result.id)  %></li>
+      <li class="search-result">
+        <!-- <%= link_to result.name, game_path(result.id) %> -->
+        <%= link_to image_tag(result.thumbnail_url), game_path(result.id) %>
+      </li>
     <% end %>
   <% end %>
   </ul>
