@@ -17,10 +17,10 @@
 <%= link_to 'Comment', new_game_comment_path(@game) %>
 
 <ul>
-<% @comments.each do |comment| %>
-  <li>body:<%= comment.body %>
-  vote:<%= comment.votes.where(vote_direction:true).count %> </li>
-  <%= render 'partials/voteform',{ type: comment, type_name:'Comment'} %>
-<% end %>
+  <% @comments.each do |comment| %>
+    <li><%= comment.body %>
+    vote:<%= comment.votes.where(vote_direction:true).count %> </li>
+    <%= render 'partials/voteform',{ type: comment, type_name:'Comment'} %>
+  <% end %>
 </ul>
 <% end %>
