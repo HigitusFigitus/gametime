@@ -5,7 +5,7 @@ $img-div-size: 186px;
 
 .carousel-item.active {
   display: flex !important;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -21,10 +21,12 @@ $img-div-size: 186px;
   height: $image-size;
 }
 
+a.carousel-control {
+  width: 100px;
+}
 a.right.carousel-control {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
-
 a.left.carousel-control {
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
