@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">BGT</a>
       <% if current_user %>
-        <%= link_to "Home", user_path(current_user), class: "btn nav-btn"%>
+        <%= link_to current_user.username, user_path(current_user), class: "btn nav-btn"%>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn nav-btn" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "btn nav-btn"%>

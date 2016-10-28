@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   	resources :favorites , only:[:create,:destroy]
   end
 
-  resources :games, only:[:index,:show,:update] do
+  resources :games, only:[:index,:show] do
   	resources :comments, only:[:new,:create]
   end
 
