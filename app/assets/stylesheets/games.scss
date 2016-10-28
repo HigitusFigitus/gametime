@@ -1,7 +1,10 @@
 $image-size: 100%;
 $img-div-size: 186px;
 
-.tag-name {font-family: 'Bangers', cursive;}
+.tag-name {
+  font-family: 'Bangers', cursive;
+  padding-top: 6px;
+}
 
 .carousel-item.active {
   display: flex !important;
