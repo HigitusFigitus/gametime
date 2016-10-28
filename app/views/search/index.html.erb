@@ -1,3 +1,4 @@
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
 <div class="container">
   <div class="row">
     <div class="col-sm-12"><h1 class="tag-name">Users</h1></div>
@@ -7,7 +8,13 @@
   <% @user_results.each do |result_array| %>
     <% result_array.each do |result| %>
       <li class="search-result">
-        <%= link_to image_tag(result.image_url), user_path(result.id) %>
+        <div class="card">
+          <%= link_to image_tag(result.image_url, class:"card-img-top"), user_path(result.id) %>
+          <div class="card-block">
+            <h4 class="card-title"><%="#{result.first_name} #{result.last_name}"%></h4>
+            <a href="#" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Friend</a>
+          </div>
+        </div>
       </li>
     <% end %>
   <% end %>
