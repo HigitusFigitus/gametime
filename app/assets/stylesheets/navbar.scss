@@ -4,8 +4,18 @@
   height: 50px;
 }
 
+.nav-btn {
+  font-family: 'Bangers', cursive;
+  color: #373a3c;
+}
+
 .navbar-brand {
   font-family: 'Bangers', cursive;
+  color: #373a3c;
+  size: 20px;
+}
+.navbar-brand:hover {
+  color: #373a3c;
 }
 
 .navbar-header {
@@ -21,5 +31,5 @@
   border: none;
   cursor: pointer;
 }
-.search input[type='text']::-webkit-input-placeholder {color: #0275d8;}
+.search input[type='text']::-webkit-input-placeholder {color: #373a3c;}
 .search input[type='text']:hover::-webkit-input-placeholder {color: #014c8c;}

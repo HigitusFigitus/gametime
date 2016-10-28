@@ -1,17 +1,13 @@
 $image-size: 100%;
-$img-div-size: calc(16.66666% - 5px);
+$img-div-size: 186px;
+
+.tag-name {font-family: 'Bangers', cursive;}
 
 .carousel-item.active {
   display: flex !important;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-// // .carousel-item {
-//   display: flex;
-// }
-// div.carousel-item a {
-//   display: flex;
-// }
 
 .img-container {
   // display: flex;
