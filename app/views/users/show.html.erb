@@ -1,34 +1,58 @@
-<%= render "partials/header" %>
-<% if current_user == @user %>
-  <h1>WELCOME <%= @user.username %></h1>
-<% else %>
-  <h1><%= @user.username %> Profile</h1>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-centered">
+      <% if current_user == @user %>
+        <h1>Hi <%=@user.username %>!</h1>
+      <% else %>
+        <h1><%= @user.username %> Profile</h1>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-centered">
+      <img src="<%= @user.image_url %> ">
+      <p>Name: <%= @user.first_name+ ' ' + @user.last_name%></p>
+      <p>Username:<%= @user.username %></p>
+      <p>Email:<%= @user.email %></p>
+    </div>
+  </div>
+  <% if !friend?(@user) %>
+    <div class="row">
+      <div class="col-md-1">
+        <%= form_for :friendship, url:user_friendships_path(@user) do |f| %>
+          <%= submit_tag("Add") %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Favorite Board Games:</h3>
 
-<h2>About</h2>
-<p>Username:<%= @user.username %></p>
-<p>Email:<%= @user.email %></p>
-
-<% if !friend?(@user) %>
-  <%= form_for :friendship, url:user_friendships_path(@user) do |f| %>
-    <%= submit_tag("Add") %>
+      <% @games.each do |game| %>
+        <div class="col-md-4 pic-container">
+          <%= link_to image_tag(game.thumbnail_url,class:"image-size" ),game_path(game)%>
+          <p>Name: <%= game.name %></p>
+          <p>Votes: <%= game.votes.where(vote_direction:true).count %></p>
+            <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
+            <%= submit_tag("Delete") %>
+            <% end %>
+        </div>
+      <% end %>
+      </div>
+      <div class="col-md-6">
+        <h3>Following:</h3>
+             <% @friends.each do |friend| %>
+          <div class="col-md-4 pic-container">
+          <%= link_to image_tag(friend.image_url, class:"image-size"), user_path(friend) %>
+             <p><%= link_to friend.username, user_path(friend) %></p>
+               <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete do |f| %>
+              <%= submit_tag("Delete") %>
+              <% end %>
+          </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
   <% end %>
-
-<% else %>
-  <h3>Favorite Board Games:</h3>
-  <% @games.each do |game| %>
-    <%= link_to image_tag(game.thumbnail_url),game_path(game) %>
-    <p>Name: <%= game.name %></p>
-    <p>Votes: <%= game.votes.where(vote_direction:true).count %></p>
-      <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
-      <%= submit_tag("Delete") %>
-  <% end %>
-<% end %>
- <h3>Following:</h3>
- <% @friends.each do |friend| %>
-   <p><%= link_to friend.username, user_path(friend) %></p>
-     <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete do |f| %>
-    <%= submit_tag("Delete") %>
-  <% end %>
- <% end %>
-<% end %>
+</div>
