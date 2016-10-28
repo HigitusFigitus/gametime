@@ -1,9 +1,10 @@
 <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
 <div class="container">
+
+  <% if @user_results.count > 0 %>
   <div class="row">
     <div class="col-sm-12"><h1 class="tag-name">Users</h1></div>
   </div>
-
   <ul class="search-list">
   <% @user_results.each do |result_array| %>
     <% result_array.each do |result| %>
@@ -19,6 +20,9 @@
     <% end %>
   <% end %>
   </ul>
+  <% end %>
+
+  <% if @game_results.count > 0 %>
   <div class="row">
     <div class="col-sm-12"><h1 class="tag-name">Games</h1></div>
   </div>
@@ -32,4 +36,5 @@
     <% end %>
   <% end %>
   </ul>
+  <% end %>
 </div>
