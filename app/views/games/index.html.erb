@@ -18,14 +18,18 @@
 				<div class="carousel-item active">
 					<% group = group(tag)[0] %>
 					<% group.each do |game| %>
-					  <%= link_to image_tag(game.thumbnail_url), game_path(game) %>
+						<div class="img-container">
+							<%= link_to image_tag(game.thumbnail_url), game_path(game) %>
+						</div>
 					<% end %>
 				</div>
 
 				<% group(tag)[1..-1].each do |group| %>
 				<div class="carousel-item">
 					<% group.each do |game| %>
-					  <%= link_to image_tag(game.thumbnail_url), game_path(game) %>
+					  <div class="img-container">
+							<%= link_to image_tag(game.thumbnail_url), game_path(game) %>
+						</div>
 					<% end %>
 				</div>
 				<% end %>
