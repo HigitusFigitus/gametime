@@ -6,7 +6,6 @@ class CreateGames < ActiveRecord::Migration[5.0]
       t.string  :thumbnail_url
       t.string  :min_players, :max_players, :play_time, :publish_year
       t.text    :description
-      t.integer :vote
 
       t.integer :tag_id, default: 1
 

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
 	def new
     @comment = Comment.new
 	end
@@ -8,6 +10,4 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to game_path(params[:game_id])
 	end
-
-
 end

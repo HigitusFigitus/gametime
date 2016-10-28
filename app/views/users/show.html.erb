@@ -1,8 +1,8 @@
 <%= render "partials/header" %>
 <% if current_user == @user %>
-<h1>WELCOME <%= @user.username %></h1>
+  <h1>WELCOME <%= @user.username %></h1>
 <% else %>
-<h1><%= @user.username %> Profile</h1>
+  <h1><%= @user.username %> Profile</h1>
 <% end %>
 
 <h2>About</h2>
@@ -15,13 +15,13 @@
   <% end %>
 
 <% else %>
-<h3>Favorite Board Games:</h3>
-<% @games.each do |game| %>
-  <%= link_to image_tag(game.thumbnail_url),game_path(game) %>
-  <p>Name: <%= game.name %></p>
-  <p>Votes: <%= game.vote %></p>
-    <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
-    <%= submit_tag("Delete") %>
+  <h3>Favorite Board Games:</h3>
+  <% @games.each do |game| %>
+    <%= link_to image_tag(game.thumbnail_url),game_path(game) %>
+    <p>Name: <%= game.name %></p>
+    <p>Votes: <%= game.votes.where(vote_direction:true).count %></p>
+      <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
+      <%= submit_tag("Delete") %>
   <% end %>
 <% end %>
  <h3>Following:</h3>

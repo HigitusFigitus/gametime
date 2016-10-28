@@ -7,12 +7,10 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @comments = @game.comments
     @tag = Tag.find(@game.tag_id)
-    p @comments
 	end
 
   def update
     @game = Game.find(params[:id])
-    p params
     if params[:type] == "up"
       @game.vote += 1
     else

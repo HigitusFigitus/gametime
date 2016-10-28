@@ -1,0 +1,25 @@
+<% if type.votes.exists?(user_id:current_user.id) %>
+<% if type.votes.find_by(user_id:current_user.id).vote_direction %>
+  <%= form_tag(vote_path, method: :put) do %>
+    <%= hidden_field_tag('votable_type', type_name) %>
+    <%= hidden_field_tag('votable_id', type.id) %>
+    <div><%= submit_tag '-1' %></div>
+<% end %>
+<% else %>
+  <%= form_tag(vote_path, method: :put) do %>
+    <%= hidden_field_tag('votable_type', type_name) %>
+      <%= hidden_field_tag('votable_id', type.id) %>
+    <div><%= submit_tag '+1' %></div>
+<% end %>
+<% end %>
+
+<% else %>
+
+<%= form_tag(votes_path, method: :post) do %>
+  <%= hidden_field_tag('votable_type', type_name) %>
+  <%= hidden_field_tag('vote_direction', true) %>
+  <%= hidden_field_tag('votable_id', type.id) %>
+
+  <div><%= submit_tag '+1' %></div>
+<% end %>
+<% end %>

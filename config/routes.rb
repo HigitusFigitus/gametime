@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   resources :search, only: :index
 
+  resources :votes, only:[:create, :update]
+
   root "games#index"
 end

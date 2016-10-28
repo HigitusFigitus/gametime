@@ -10,7 +10,7 @@
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel-<%=index%>" data-slide-to="0" class="active"></li>
 				<% (group(tag).count - 1).times do |i| %>
-				<li data-target="#myCarousel-<%=index%>" data-slide-to="<%= i+1 %>"></li>
+				<li data-target="#myCarousel-<%=index%>" data-slide-to="<%= i + 1 %>"></li>
 				<% end %>
 			</ol>
 
@@ -42,5 +42,5 @@
 		</div>
 	</div>
 	<% end %>
-	<% end %>
+<% end %>
 </div>
