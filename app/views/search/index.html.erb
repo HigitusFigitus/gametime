@@ -16,11 +16,11 @@
           <% end %>
           <div class="card-block">
             <h4 class="card-title"><%="#{result.first_name} #{result.last_name}"%></h4>
-            <% if !friend?(result) %>
+            <% if current_user && !friend?(result) %>
             <%= form_for :friendship, url:user_friendships_path(result) do |f| %>
               <a href="#" class="btn btn-primary enemy" onclick='this.parentNode.submit(); return false;'><i class="fa fa-plus" aria-hidden="true"></i> Add Friend</a>
             <% end %>
-            <% elsif friend?(result) %>
+            <% elsif current_user && friend?(result) %>
             <a href="#" class="btn btn-primary friend"><i class="fa fa-check" aria-hidden="true"></i> Friends</a>
             <% else %>
             <a></a>
