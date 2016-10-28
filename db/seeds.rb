@@ -2,7 +2,7 @@ require 'json'
 
 default_tag = Tag.create(name: "Trick-taking")
 
-20.times do |i|
+500.times do |i|
   response = JSON.parse(HTTParty.get("https://bgg-json.azurewebsites.net/thing/#{i+1}"))
 
   if !response['message']
