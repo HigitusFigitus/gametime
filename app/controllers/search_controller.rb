@@ -20,13 +20,13 @@ class SearchController < ApplicationController
 
     results << User.where("lower(username) like ?", "%#{keyword}%") if User.where("lower(username) like ?", "%#{keyword}%").count > 0
 
-    return results
+    return results.uniq
   end
 
   def game_search(keyword)
     results = []
     results << Game.where("lower(name) like ?", "%#{keyword}%") if    Game.where("lower(name) like ?", "%#{keyword}%").count > 0
 
-    return results
+    return results.uniq
   end
 end
