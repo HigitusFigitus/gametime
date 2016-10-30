@@ -26,7 +26,7 @@
         <ul>
         <% @games.each do |game| %>
           <li><div class="col-md-4 game-pic-container card">
-            <%= link_to image_tag(game.thumbnail_url,class:"card-img-top image-size" ),game_path(game)%>
+            <%= link_to image_tag(game.thumbnail_url,class:"card-img-top game-image-size" ),game_path(game)%>
             <div class="card-block">
               <h4 class="card-title"><%= game.name %></h4>
               <p class="card-text">Votes: <%= game.votes.where(vote_direction:true).count %></p>
@@ -39,15 +39,19 @@
       </div>
       <div class="row">
         <h3 class="col-md-12">Following:</h3>
+          <ul>
           <% @friends.each do |friend| %>
-            <div class="col-md-4 pic-container">
-              <%= link_to image_tag(friend.image_url, class:"image-size"), user_path(friend) %>
-              <p><%= link_to friend.username, user_path(friend) %></p>
+            <li><div class="col-md-4 profile-pic-container card">
+              <%= link_to image_tag(friend.image_url, class:"card-img-top profile-image-size"), user_path(friend) %>
+              <div class="card-block">
+              <p class="card-title"><%= link_to friend.username, user_path(friend) %></p>
               <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete do |f| %>
-                <%= submit_tag("Delete") %>
+                <%= submit_tag("Delete", class:"btn btn-primary") %>
               <% end %>
-            </div>
+              </div>
+            </div></li>
           <% end %>
+          </ul>
       </div>
       </div>
   <% end %>
