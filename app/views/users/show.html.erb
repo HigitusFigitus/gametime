@@ -1,21 +1,20 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 col-centered">
+    <div class="col-md-12 ">
       <% if current_user == @user %>
-        <h1>Hi <%=@user.username %>!</h1>
+        <h1 class="text-center">Hi <%=@user.username %>!</h1>
       <% else %>
-        <h1><%= @user.username %> Profile</h1>
-      <% end %>
+        <h1 class="text-center"><%= @user.username %> Profile</h1>
+      <% end %> 
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 col-centered">
-      <img src="<%= @user.image_url %> ">
+    <div class="col-md-5 center-block profile-inform-container">
+      <img src="<%= @user.image_url %>" class="profile-pic">
       <p>Name: <%= @user.first_name+ ' ' + @user.last_name%></p>
       <p>Username:<%= @user.username %></p>
       <p>Email:<%= @user.email %></p>
     </div>
-  </div>
   <% if !friend?(@user) %>
     <div class="row">
       <div class="col-md-1">
@@ -25,34 +24,40 @@
       </div>
     </div>
   <% else %>
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Favorite Board Games:</h3>
-
-      <% @games.each do |game| %>
-        <div class="col-md-4 pic-container">
-          <%= link_to image_tag(game.thumbnail_url,class:"image-size" ),game_path(game)%>
-          <p>Name: <%= game.name %></p>
-          <p>Votes: <%= game.votes.where(vote_direction:true).count %></p>
-            <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
-            <%= submit_tag("Delete") %>
-            <% end %>
-        </div>
-      <% end %>
+      <div class="col-md-7">
+      <div class="row">
+        <h3 class="col-md-12">Favorite Board Games:</h3>
+        <ul>
+        <% @games.each do |game| %>
+          <li><div class="col-md-4 game-pic-container card">
+            <%= link_to image_tag(game.thumbnail_url,class:"card-img-top game-image-size" ),game_path(game)%>
+            <div class="card-block">
+              <h4 class="card-title"><%= game.name %></h4>
+              <p class="card-text">Votes: <%= game.votes.where(vote_direction:true).count %></p>
+              <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
+                <%= submit_tag("Delete",class: "btn btn-primary") %>
+              <% end %>  
+            </div>       
+          </div></li>
+        <% end %></ul>
       </div>
-      <div class="col-md-6">
-        <h3>Following:</h3>
-             <% @friends.each do |friend| %>
-          <div class="col-md-4 pic-container">
-          <%= link_to image_tag(friend.image_url, class:"image-size"), user_path(friend) %>
-             <p><%= link_to friend.username, user_path(friend) %></p>
-               <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete do |f| %>
-              <%= submit_tag("Delete") %>
+      <div class="row">
+        <h3 class="col-md-12">Following:</h3>
+          <ul>
+          <% @friends.each do |friend| %>
+            <li><div class="col-md-4 profile-pic-container card">
+              <%= link_to image_tag(friend.image_url, class:"card-img-top profile-image-size"), user_path(friend) %>
+              <div class="card-block">
+              <p class="card-title"><%= link_to friend.username, user_path(friend) %></p>
+              <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete do |f| %>
+                <%= submit_tag("Delete", class:"btn btn-primary") %>
               <% end %>
-          </div>
-      <% end %>
+              </div>
+            </div></li>
+          <% end %>
+          </ul>
       </div>
-    </div>
-  </div>
+      </div>
   <% end %>
+  </div>
 </div>
