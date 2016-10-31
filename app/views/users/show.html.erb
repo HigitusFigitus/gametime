@@ -20,15 +20,15 @@
       <div class="col-md-8">
       <div class="row row-container">
         <h3 class="col-md-12" style="margin-top:10px;">Favorite Board Games:</h3>
-        <ul>
+        <ul id="fav-game-list">
         <% @games.each do |game| %>
           <li><div class="col-md-4 game-pic-container card">
             <%= link_to image_tag(game.thumbnail_url,class:"card-img-top game-image-size" ),game_path(game)%>
             <div class="card-block">
               <h4 class="card-title"><%= game.name %></h4>
               <p class="card-text">Votes: <%= game.votes.where(vote_direction:true).count %></p>
-              <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete do |f| %>
-                <%= submit_tag("Delete",class: "btn btn-primary") %>
+              <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete,html:{id:"delete-game-form"} do |f| %>
+                <%= submit_tag("Delete",class: "btn btn-primary",id:"delete-game-button-#{game.id}") %>
               <% end %>  
             </div>       
           </div></li>
