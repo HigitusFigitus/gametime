@@ -8,8 +8,12 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    if request.xhr?
+      p "$"*20
+    else
     favorite = Favorite.find_by(user_id:params[:user_id],game_id: params[:id])
     favorite.destroy
     redirect_to user_path(current_user)
+  end
   end
 end

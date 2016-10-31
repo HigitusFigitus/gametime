@@ -1,5 +1,21 @@
-<div class="container-fluid" style="background-color:#8c8f91;">
-  <div class="row">
+<div class="container-fluid">
+
+  <% if !friend?(@user) %>
+    <div class="row">
+    <div class="col-md-12 friend-inform-container" id= "hello">
+    <ul class="inform-list">
+      <li><img src="<%= @user.image_url %>" class="profile-pic img-rounded"></li>
+      <li class="profile-inform-col"><p>Name: <%= @user.first_name+ ' ' + @user.last_name%></p></li>
+      <li class="profile-inform-col"><p>Username:<%= @user.username %></p></li>
+      <li><p class="profile-inform-col" style="margin-bottom:0;">Email:<%= @user.email %></p></li>
+      <li><%= form_for :friendship, url:user_friendships_path(@user),html:{class:"add-friend"} do |f| %>
+            <%= submit_tag("Add",class:"btn btn-primary") %>
+          <% end %></li>
+      </ul>
+    </div>
+    </div>
+  <% else %>
+    <div class="row">
     <div class="col-md-4 profile-inform-container">
     <ul class="inform-list">
       <li><img src="<%= @user.image_url %>" class="profile-pic img-rounded"></li>
@@ -8,15 +24,6 @@
       <li><p class="profile-inform-col" style="margin-bottom:0;">Email:<%= @user.email %></p></li>
       </ul>
     </div>
-  <% if !friend?(@user) %>
-    <div class="row">
-      <div class="col-md-1">
-        <%= form_for :friendship, url:user_friendships_path(@user) do |f| %>
-          <%= submit_tag("Add") %>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
       <div class="col-md-8">
       <div class="row row-container">
         <h3 class="col-md-12" style="margin-top:10px;">Favorite Board Games:</h3>
@@ -29,8 +36,8 @@
               <p class="card-text">Votes: <%= game.votes.where(vote_direction:true).count %></p>
               <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete,html:{id:"delete-game-form"} do |f| %>
                 <%= submit_tag("Delete",class: "btn btn-primary",id:"delete-game-button-#{game.id}") %>
-              <% end %>  
-            </div>       
+              <% end %>
+            </div>
           </div></li>
         <% end %></ul>
       </div>

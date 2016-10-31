@@ -8,7 +8,7 @@ function deleteGameListener(){
 
 		var url = $(this).attr("action");
 		var method = $(this).find("input[name=_method]").val();
-		
+
 		var request = $.ajax({
 		 	url:url,
 		 	method:method

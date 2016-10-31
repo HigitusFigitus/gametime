@@ -1,3 +1,19 @@
+body{
+  background-color:#8c8f91;
+}
+.add-friend{
+  margin-top:10px;
+  text-align:center;
+}
+.friend-inform-container{
+  border: solid 1px #bcb7b7;
+  border-radius:10px;
+  background-color:white;
+  width:350px;
+ margin-left:40%;
+ margin-right:40%;
+  display: block;
+}
 
 .profile-inform-container{
 	background-color:white;
@@ -9,8 +25,8 @@
 }
 
 .profile-inform-col{
-	border-top:solid 1px #bcb7b7; 
-	text-align:center;	
+	border-top:solid 1px #bcb7b7;
+	text-align:center;
 	padding-top:13px;
 }
 
