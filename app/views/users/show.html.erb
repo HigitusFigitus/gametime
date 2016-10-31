@@ -1,19 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color:#8c8f91;">
   <div class="row">
-    <div class="col-md-12 ">
-      <% if current_user == @user %>
-        <h1 class="text-center">Hi <%=@user.username %>!</h1>
-      <% else %>
-        <h1 class="text-center"><%= @user.username %> Profile</h1>
-      <% end %> 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-5 center-block profile-inform-container">
-      <img src="<%= @user.image_url %>" class="profile-pic">
-      <p>Name: <%= @user.first_name+ ' ' + @user.last_name%></p>
-      <p>Username:<%= @user.username %></p>
-      <p>Email:<%= @user.email %></p>
+    <div class="col-md-4 profile-inform-container">
+    <ul class="inform-list">
+      <li><img src="<%= @user.image_url %>" class="profile-pic img-rounded"></li>
+      <li class="profile-inform-col"><p>Name: <%= @user.first_name+ ' ' + @user.last_name%></p></li>
+      <li class="profile-inform-col"><p>Username:<%= @user.username %></p></li>
+      <li><p class="profile-inform-col" style="margin-bottom:0;">Email:<%= @user.email %></p></li>
+      </ul>
     </div>
   <% if !friend?(@user) %>
     <div class="row">
@@ -24,9 +17,9 @@
       </div>
     </div>
   <% else %>
-      <div class="col-md-7">
-      <div class="row">
-        <h3 class="col-md-12">Favorite Board Games:</h3>
+      <div class="col-md-8">
+      <div class="row row-container">
+        <h3 class="col-md-12" style="margin-top:10px;">Favorite Board Games:</h3>
         <ul>
         <% @games.each do |game| %>
           <li><div class="col-md-4 game-pic-container card">
@@ -41,8 +34,8 @@
           </div></li>
         <% end %></ul>
       </div>
-      <div class="row">
-        <h3 class="col-md-12">Following:</h3>
+      <div class="row row-container">
+        <h3 class="col-md-12" style="margin-top:10px;">Following:</h3>
           <ul>
           <% @friends.each do |friend| %>
             <li><div class="col-md-4 profile-pic-container card">

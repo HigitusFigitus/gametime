@@ -1,18 +1,28 @@
+
 .profile-inform-container{
-	margin-top:30px;
-	height:600px;
-	background-color:red;
+	background-color:white;
+	width:350px;
+	margin-top:20px;
+	margin-left: 5%;
+	border: solid 1px #bcb7b7;
+	border-radius:10px;
 }
 
-.center-block {
-	display: block;
-	padding-left: 125px;
-	padding-right: auto;
+.profile-inform-col{
+	border-top:solid 1px #bcb7b7; 
+	text-align:center;	
+	padding-top:13px;
+}
+
+.inform-list{
+	padding-left:0;
 }
 
 .profile-pic{
 	height:300px;
 	width: 250px;
+	display: block;
+    margin: 10px auto;
 }
 
 .game-image-size{
@@ -20,11 +30,22 @@
   	height: 40%;
 }
 
+.row-container{
+	background-color:white;
+	margin-top:18px;
+	margin-bottom:15px;
+	margin-left: 5%;
+	border-radius:10px;
+	border: solid 1px #bcb7b7;
+	width:93%;
+	height:100%;
+}
+
 .game-pic-container{
   	margin-top: 10px;
   	padding-left:0;
   	padding-right:0;
-  	height: 250px;
+  	height: 280px;
 	width: 200px;
 	margin-left:30px;
 }
