@@ -10,8 +10,9 @@ body{
   border-radius:10px;
   background-color:white;
   width:350px;
- margin-left:40%;
- margin-right:40%;
+  margin-top:20px;
+  margin-left:40%;
+  margin-right:40%;
   display: block;
 }
 
@@ -93,3 +94,6 @@ ul{
 .text-center{
 	text-align:center;
 }
+ .img-rounded{
+    border-radius:10%;
+ }

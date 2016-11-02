@@ -1,25 +1,29 @@
 <% if type.votes.exists?(user_id:current_user.id) %>
 <% if type.votes.find_by(user_id:current_user.id).vote_direction %>
-  <%= form_tag(vote_path, method: :put) do %>
+  <%= form_tag(vote_path, method: :put, class:"vote-form",remote:true) do %>
     <%= hidden_field_tag('votable_type', type_name) %>
     <%= hidden_field_tag('votable_id', type.id) %>
-    <div><%= submit_tag '-1' %></div>
+    <%= hidden_field_tag('game_id', game_id) %>
+    <div><%= submit_tag '-1', class:"btn btn-primary" %></div>
 <% end %>
 <% else %>
-  <%= form_tag(vote_path, method: :put) do %>
+  <%= form_tag(vote_path, method: :put,class:"vote-form",remote:true) do %>
     <%= hidden_field_tag('votable_type', type_name) %>
       <%= hidden_field_tag('votable_id', type.id) %>
-    <div><%= submit_tag '+1' %></div>
+    <%= hidden_field_tag('game_id', game_id) %>
+
+    <div><%= submit_tag '+1', class:"btn btn-primary" %></div>
 <% end %>
 <% end %>
 
 <% else %>
 
-<%= form_tag(votes_path, method: :post) do %>
+<%= form_tag(votes_path, method: :post,class:"vote-form",remote:true) do %>
   <%= hidden_field_tag('votable_type', type_name) %>
   <%= hidden_field_tag('vote_direction', true) %>
   <%= hidden_field_tag('votable_id', type.id) %>
+    <%= hidden_field_tag('game_id', game_id) %>
 
-  <div><%= submit_tag '+1' %></div>
+  <div><%= submit_tag '+1', class:"btn btn-primary" %></div>
 <% end %>
 <% end %>
