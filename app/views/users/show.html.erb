@@ -8,7 +8,7 @@
       <li class="profile-inform-col"><p>Name: <%= @user.first_name+ ' ' + @user.last_name%></p></li>
       <li class="profile-inform-col"><p>Username:<%= @user.username %></p></li>
       <li><p class="profile-inform-col" style="margin-bottom:0;">Email:<%= @user.email %></p></li>
-      <li><%= form_for :friendship, url:user_friendships_path(@user),html:{class:"add-friend"} do |f| %>
+      <li><%= form_for :friendship, url:user_friendships_path(@user),html:{class:"add-friend"}, remote: true do |f| %>
             <%= submit_tag("Add",class:"btn btn-primary") %>
           <% end %></li>
       </ul>
@@ -27,14 +27,14 @@
       <div class="col-md-8">
       <div class="row row-container">
         <h3 class="col-md-12" style="margin-top:10px;">Favorite Board Games:</h3>
-        <ul id="fav-game-list">
+        <ul class="fav-game-list">
         <% @games.each do |game| %>
-          <li><div class="col-md-4 game-pic-container card">
+          <li><div class="col-md-4 game-pic-container card" id="game-<%= game.id %>">
             <%= link_to image_tag(game.thumbnail_url,class:"card-img-top game-image-size" ),game_path(game)%>
             <div class="card-block">
               <h4 class="card-title"><%= game.name %></h4>
               <p class="card-text">Votes: <%= game.votes.where(vote_direction:true).count %></p>
-              <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete,html:{id:"delete-game-form"} do |f| %>
+              <%= form_for :favorite, url:user_favorite_path(current_user,game), method: :delete,html:{class:"delete-game-form"}, remote:true do |f| %>
                 <%= submit_tag("Delete",class: "btn btn-primary",id:"delete-game-button-#{game.id}") %>
               <% end %>
             </div>
@@ -43,13 +43,13 @@
       </div>
       <div class="row row-container">
         <h3 class="col-md-12" style="margin-top:10px;">Following:</h3>
-          <ul>
+          <ul class="friendship-list">
           <% @friends.each do |friend| %>
-            <li><div class="col-md-4 profile-pic-container card">
+            <li><div class="col-md-4 profile-pic-container card" id="friend-<%= friend.id %>">
               <%= link_to image_tag(friend.image_url, class:"card-img-top profile-image-size"), user_path(friend) %>
               <div class="card-block">
               <p class="card-title"><%= link_to friend.username, user_path(friend) %></p>
-              <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete do |f| %>
+              <%= form_for :friendship, url:user_friendship_path(current_user ,friend),method: :delete, html:{class:"delete-friend-form"}, remote:true do |f| %>
                 <%= submit_tag("Delete", class:"btn btn-primary") %>
               <% end %>
               </div>

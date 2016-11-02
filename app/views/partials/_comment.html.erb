@@ -1,0 +1,5 @@
+<%= form_for :comment, url: game_comments_path(game) do |f| %>
+  <p><%= f.label :comment %>:</p>
+  <p> <%= f.text_area :body %></p>
+  <%= submit_tag("Comment",class:"btn btn-primary") %>
+<% end %>

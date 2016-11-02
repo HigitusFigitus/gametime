@@ -6,11 +6,16 @@ class FriendshipsController < ApplicationController
     current_user.friends << friend
     redirect_to user_path(friend)
   end
+  end
 
   def destroy
     friendship = Friendship.find_by(user_id:params[:user_id],friend_id:params[:id])
-    friendship.destroy
-    redirect_to user_path(current_user)
+    delete_friendship = friendship.destroy
+    if request.xhr?
+      render json: delete_friendship.friend.id
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   private
