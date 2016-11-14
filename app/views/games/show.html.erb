@@ -7,23 +7,24 @@
   <div class="game-detail-container">
     <div class="game-profile-container">
       <img src="<%= @game.thumbnail_url %>">
-      <p class="list-border" style="margin-top:30px;">Number of players: <%= @game.min_players %> – <%= @game.max_players %></p>
-      <p class="list-border">Upvoted <%= @game.votes.where(vote_direction:true).count %> times</p>
+      <p class="list-border list-pad" style="margin-top:30px;">Number of players: <%= @game.min_players %> – <%= @game.max_players %></p>
+      <p class="list-border"></p>
+      <!-- <p class="list-border">Upvoted <%= @game.votes.where(vote_direction:true).count %> times</p> -->
+      <% if !favorite?(@game) %>
+      <%= form_tag(user_favorites_path(@game), method: :post) do %>
+        <%= submit_tag('Add to Favorites', class:"btn btn-primary") %>
+      <% end %>
     </div>
 
     <div class="game-des-comment-container">
       <div class="game-des-container">
         <h2>Description</h2>
         <p><%= @game.description %></p>
-        <% if current_user %>
+        <!-- <% if current_user %>
         <div class="game-vote-form">
         <%= render 'partials/voteform',{ type: @game, type_name:'Game', game_id:@game.id} %>
         </div>
-        <% if !favorite?(@game) %>
-        <%= form_tag(user_favorites_path(@game), method: :post) do %>
-        <%= submit_tag('Add to Favorites',class:"btn btn-primary") %>
-        <% end %>
-        <% end %>
+        <% end %> -->
       </div>
       <div class="game-comment-container">
 

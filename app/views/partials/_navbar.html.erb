@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">BGT</a>
+      <a class="navbar-brand" href="/">Game Time</a>
       <% if current_user %>
         <%= link_to current_user.username, user_path(current_user), class: "btn nav-btn"%>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn nav-btn" %>
