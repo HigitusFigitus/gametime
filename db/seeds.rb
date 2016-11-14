@@ -1,6 +1,6 @@
 require 'json'
 
-default_tag = Tag.create(name: "Trick-taking")
+default_tag = Tag.create(name: "Abstract Strategy")
 
 500.times do |i|
   response = JSON.parse(HTTParty.get("https://bgg-json.azurewebsites.net/thing/#{i+1}"))
