@@ -6,7 +6,6 @@ class FriendshipsController < ApplicationController
     current_user.friends << friend
     redirect_to user_path(friend)
   end
-  end
 
   def destroy
     friendship = Friendship.find_by(user_id:params[:user_id],friend_id:params[:id])
