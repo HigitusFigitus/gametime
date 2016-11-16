@@ -7,10 +7,11 @@ Once you create a gamer profile, you can follow friends as well as save games to
 
 * Sam Leiken ([@sleiken](https://github.com/sleiken))
 * King Heng Jonathan Lok ([@lokpio](http://github.com/elliedori))
-* Ilaria Varriale ([@HigitusFigitus](http://github.com/HigitusFigitus))
+* Ilaria Varriale ([@HigitusFigitus](http://github.com/HigitusFigitus))  
+  
 
-![Image of Game Time Homepage](/public/game_time.png)
-
+![Image of Game Time Homepage](/public/game_time.png)  
+  
 ## MVP functionalities
 
 * Search a board games database created via the BoardGameGeek JSON APIs
@@ -19,9 +20,11 @@ Once you create a gamer profile, you can follow friends as well as save games to
 
 * Save games to your favorites
 
-* Upvote and downvote games and comment on game page
+* Upvote and downvote games and comment on game page  
+  
 
-![Image of Game Time single game page](/public/game_page.png)
+![Image of Game Time single game page](/public/game_page.png)  
+
 
 ## Team Dynamics
 
