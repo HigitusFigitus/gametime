@@ -9,7 +9,7 @@ Once you create a gamer profile, you can follow friends as well as save games to
 * King Heng Jonathan Lok ([@lokpio](http://github.com/elliedori))
 * Ilaria Varriale ([@HigitusFigitus](http://github.com/HigitusFigitus))
 
-![Image of Game Time Homepage](/public/game_time=150x150)
+![Image of Game Time Homepage](/public/game_time.png)
 
 ## MVP functionalities
 
@@ -21,7 +21,7 @@ Once you create a gamer profile, you can follow friends as well as save games to
 
 * Upvote and downvote games and comment on game page
 
-![Image of Game Time single game page](/public/game_page =150x150)
+![Image of Game Time single game page](/public/game_page.png)
 
 ## Team Dynamics
 
