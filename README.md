@@ -3,7 +3,7 @@
 An application for board games lovers, Game Time lets you search through a vast board games database to discover new games and rediscover old ones. 
 Once you create a gamer profile, you can follow friends as well as save games to your favorites, upvote and downvote them, and leave a comment.  
 
-## Authored by
+## Contributors
 
 * Sam Leiken ([@sleiken](https://github.com/sleiken))
 * King Heng Jonathan Lok ([@lokpio](http://github.com/elliedori))
@@ -29,7 +29,7 @@ Once you create a gamer profile, you can follow friends as well as save games to
 ## Team Dynamics
 
 * Schedule
-  * 9am - 8pm (very flexible)
+  * 9am - 8pm (flexible)
 
 * Check-In Protocol
   * Successes
